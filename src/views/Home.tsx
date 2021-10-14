@@ -22,6 +22,20 @@ const HomeUi = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const getCharacter = async () => {
+    try {
+      setLoading(true);
+      const response: any = await request("characters");
+      if (response.length) {
+        // setData(response);
+        console.log(response);
+      }
+    } catch (error) {
+      toast(`${error}`);
+    } finally {
+      // setLoading(false);
+    }
+  }
   useEffect(() => {
     const getBooks = async () => {
       try {
@@ -29,6 +43,7 @@ const HomeUi = () => {
         const response: any = await request("books");
         if (response.length) {
           setData(response);
+          console.log(response);
         }
       } catch (error) {
         toast(`${error}`);
@@ -38,6 +53,7 @@ const HomeUi = () => {
     };
 
     getBooks();
+    getCharacter();
     // return () => {
     //   cleanup;
     // };

@@ -24,8 +24,8 @@ const ListUi = (props: any) => {
         {data.length > 1 ? (
           data.map((el, index) => {
             return (
-              <ListGroupItem variant="flush">
-                <CardUi cardData={el} key={index} />
+              <ListGroupItem variant="flush" key={index}>
+                <CardUi cardData={el} />
               </ListGroupItem>
             );
           })
