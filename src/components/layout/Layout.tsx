@@ -5,7 +5,7 @@ import Container from "react-bootstrap/container";
 const LayoutUi = ({ children }: any) => {
   return (
     <>
-      <HeaderUi link="hi" />
+      <HeaderUi />
       <main className="main">
         <Container>{children}</Container>
       </main>

@@ -1,0 +1,23 @@
+div.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+div.card {
+  box-shadow: 0 0.25rem 0.5rem #00000026;
+  div.card-header {
+    background-color: transparent;
+    border-bottom: 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  div.card-footer {
+    // background-color: transparent;
+    border-top: 0;
+  }
+}
