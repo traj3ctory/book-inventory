@@ -1,69 +1,47 @@
-import { useState, useEffect } from "react";
-import request from "../services/axios";
-import { toast } from "../services/alerts";
+import { useEffect, useContext } from "react";
+import axios from "axios";
+import { alert } from "../services/alerts";
 import ListUi from "../components/List";
-import LoaderUi from '../components/Loader';
-import SearchUi from '../components/Search';
-
-// interface dataObject {
-//     url: string,
-//     name: string,
-//     isbn: string,
-//     author: Array<string>,
-//     numberOfPages: string,
-//     publisher: string,
-//     country: string,
-//     released: string,
-//     character: Array<string>,
-//     povCharacters: Array<string>,
-// };
+import LoaderUi from "../components/Loader";
+import { Context } from "../context/GlobalStore";
 
 const HomeUi = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // @ts-ignore
+  const [state, dispatch] = useContext(Context);
 
-  const getCharacter = async () => {
-    try {
-      setLoading(true);
-      const response: any = await request("characters");
-      if (response.length) {
-        // setData(response);
-        console.log(response);
-      }
-    } catch (error) {
-      toast(`${error}`);
-    } finally {
-      // setLoading(false);
-    }
-  }
   useEffect(() => {
-    const getBooks = async () => {
-      try {
-        setLoading(true);
-        const response: any = await request("books");
-        if (response.length) {
-          setData(response);
-          console.log(response);
-        }
-      } catch (error) {
-        toast(`${error}`);
-      } finally {
-        setLoading(false);
-      }
-    };
+    let unmounted = false;
+    let source = axios.CancelToken.source();
 
-    getBooks();
-    getCharacter();
-    // return () => {
-    //   cleanup;
-    // };
-  }, []);
+    (async () => {
+      try {
+        dispatch({ type: "SET_LOADING", payload: true });
+        const characterUrl = `${process.env.REACT_APP_API}characters`;
+        const bookUrl = `${process.env.REACT_APP_API}books`;
+        let res = await axios.get(characterUrl, { timeout: 5000 });
+        let resp = await axios.get(bookUrl, { timeout: 5000 });
+
+        if (!unmounted && res.data && resp.data) {
+          dispatch({ type: "SET_CHARACTER", payload: res.data });
+          dispatch({ type: "SET_BOOKS", payload: resp.data });
+        }
+      } catch (error: any) {
+        alert("Error", error?.message || "Something went wrong!", "error");
+      } finally {
+        dispatch({ type: "SET_LOADING", payload: false });
+      }
+    })();
+
+    return function () {
+      unmounted = true;
+      source.cancel("Cancelling in cleanup");
+    };
+  }, [dispatch]);
 
   return (
     <>
-      <SearchUi />
-      {data && <ListUi data={data} />}
-      {loading && <LoaderUi />}
+      {(state.books && state.loading === false) && <ListUi data={state.books} />}
+      {state.loading && <LoaderUi />}
     </>
   );
 };

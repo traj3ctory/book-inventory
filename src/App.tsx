@@ -1,20 +1,24 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeUi from "./views/Home";
-import "./style/index.scss";
 import LayoutUi from "./components/layout/Layout";
+import Store from "./context/GlobalStore";
+import "./style/index.scss";
 
 function App() {
+
   return (
-    <LayoutUi>
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <HomeUi />
-          </Route>
-        </Switch>
-      </Router>
-    </LayoutUi>
-  );
+    <Store>
+      <LayoutUi>
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <HomeUi />
+            </Route>
+          </Switch>
+        </Router>
+      </LayoutUi>
+    </Store>
+  )
 }
 
 export default App;

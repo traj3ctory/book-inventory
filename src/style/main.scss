@@ -1,8 +1,25 @@
 main.main{
     min-height: calc(100vh - 40px);
     margin-top: 1rem;
+    margin-bottom: 2rem;
     padding-top: 3rem;
     background-color: #eeeeee;
     font-size: 0.9rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input.form-control{
+    border-right: 0;
+    padding-left: 1rem;
+    &:active, &:focus{
+        box-shadow: none;
+        border: 1px solid #cccccc;
+        border-right: none;
+    }
+}
+
+span.input-group-text{
+    background-color: #ffffff;
+    border-left: 0;
+    cursor: pointer;
 }

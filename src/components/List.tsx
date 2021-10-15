@@ -21,7 +21,7 @@ const ListUi = (props: any) => {
   return (
     <>
       <ListGroup>
-        {data.length > 1 ? (
+        {data.length >= 1 ? (
           data.map((el, index) => {
             return (
               <ListGroupItem variant="flush" key={index}>
