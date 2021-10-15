@@ -1,6 +1,6 @@
 import FooterUi from "./Footer";
 import HeaderUi from "./Header";
-import Container from "react-bootstrap/container";
+import Container from "react-bootstrap/Container";
 
 const LayoutUi = ({ children }: any) => {
   return (
