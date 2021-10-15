@@ -2,7 +2,6 @@ import { useEffect, useContext } from "react";
 import axios from "axios";
 import { alert } from "../services/alerts";
 import ListUi from "../components/List";
-import LoaderUi from "../components/Loader";
 import { Context } from "../context/GlobalStore";
 
 const HomeUi = () => {
@@ -40,8 +39,7 @@ const HomeUi = () => {
 
   return (
     <>
-      {(state.books && state.loading === false) && <ListUi data={state.books} />}
-      {state.loading && <LoaderUi />}
+      {state.books && state.loading === false && <ListUi data={state.books} />}
     </>
   );
 };

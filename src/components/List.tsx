@@ -10,6 +10,7 @@ interface dataObject {
   numberOfPages: string;
   publisher: string;
   country: string;
+  mediaType: string;
   released: string;
   character: Array<string>;
   povCharacters: Array<string>;
