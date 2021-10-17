@@ -24,7 +24,7 @@ const CardUi = (props: any) => {
     <>
       <Card>
         <Card.Header>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between flex-wrap">
             <h5>
               <strong>
                 <FaBookOpen />

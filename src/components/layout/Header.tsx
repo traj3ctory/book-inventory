@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import SearchUi from "../Search";
 import { toast } from "../../services/alerts";
 import { Context } from "../../context/GlobalStore";
+import img from "../../logo.svg";
 
 const HeaderUi = () => {
   // @ts-ignore
@@ -95,15 +96,16 @@ const HeaderUi = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="md" fixed="top" className="shadow-sm">
+      <Navbar bg="light" expand="sm" fixed="top" className="shadow-sm">
         <Container>
-          <Navbar.Brand>Book-Inventory</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto d-flex justify-content-end w-100">
-              <SearchUi filter={filter} />
-            </Nav>
-          </Navbar.Collapse>
+          <Navbar.Brand>
+            <img src={img} alt="header-img" width="34%" />&nbsp;Book-Inventory</Navbar.Brand>
+          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+          {/* <Navbar.Collapse id="basic-navbar-nav"> */}
+          <Nav className="me-auto d-flex justify-content-end w-100">
+            <SearchUi filter={filter} />
+          </Nav>
+          {/* </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </>
