@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import Card from 'react-bootstrap/Card';
-import SearchUi from '../Search';
-import DateSearchUi from '../DateSearch';
-import { Context } from '../../context/GlobalStore';
+import { useContext } from "react";
+import Card from "react-bootstrap/Card";
+import SearchUi from "../Search";
+import DateSearchUi from "../DateSearch";
+import { Context } from "../../context/GlobalStore";
 
 const SideBarUi = () => {
   // @ts-ignore
@@ -43,12 +43,12 @@ const SideBarUi = () => {
           await FoundBook.push(book);
           if (FoundBook.length >= 1) {
             await dispatch({ type: "SEARCH_BOOKS", payload: [...FoundBook] });
+          } else {
+            dispatch({
+              type: "EMPTY",
+              payload: "Book not found!, try another search value",
+            });
           }
-        } else {
-          dispatch({
-            type: "EMPTY",
-            payload: "Book not found!, try another search value",
-          });
         }
         return false;
       });
