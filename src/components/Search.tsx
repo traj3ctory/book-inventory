@@ -32,7 +32,7 @@ const SearchUi = (props: any) => {
             // onInput={props.filter}
           />
           <InputGroup.Text onClick={handleClick} id="searchParam">
-            <FaSearchengin />
+            <FaSearchengin className="pulse" />
           </InputGroup.Text>
         </InputGroup>
       </Form>
