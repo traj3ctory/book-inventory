@@ -1,25 +1,42 @@
-main.main{
-    min-height: calc(100vh - 40px);
-    margin-top: 1rem;
-    margin-bottom: 1.7rem;
-    padding-top: 3rem;
-    background-color: #eeeeee;
-    font-size: 0.9rem;
-    font-family: Montserrat;
+// ? lAYOUT STYLING
+main.main {
+  min-height: calc(100vh - 40px);
+  margin-top: 3rem;
+  margin-bottom: 1.7rem;
+  padding-top: 3.5rem;
+  background-color: #eeeeee;
+  font-size: 0.9rem;
+  font-family: Montserrat;
 }
 
-input.form-control{
-    border-right: 0;
-    padding-left: 1rem;
-    &:active, &:focus{
-        box-shadow: none;
-        border: 1px solid #cccccc;
-        border-right: none;
-    }
+input.form-control {
+  border-right: 0;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  &:active,
+  &:focus {
+    box-shadow: none;
+    border: 1px solid #cccccc;
+    border-right: none;
+  }
 }
 
-span.input-group-text{
-    background-color: #ffffff;
-    border-left: 0;
-    cursor: pointer;
+span.input-group-text {
+  background-color: #ffffff;
+  border-left: 0;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+div.side_card {
+  margin-top: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 20vh;
+  border: 0;
+  padding: 1rem;
+  div.card-header {
+    text-transform: uppercase;
+  }
 }

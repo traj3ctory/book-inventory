@@ -4,13 +4,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { FaSearchengin } from 'react-icons/fa';
 
-const SearchUi = (props: any) => {
+const DateSearchUi = (props: any) => {
   const [params, setParams] = useState("");
 
   /**
    * @Function : function to send the search parameter to the filter function
    * @param: input value
    */
+
   const handleClick = (event: any) => {
     event.preventDefault();
     props.filter(params);
@@ -22,11 +23,11 @@ const SearchUi = (props: any) => {
       <Form onSubmit={handleClick}>
         <InputGroup>
           <FormControl
-            placeholder="...Search"
+            type="date"
             aria-label="search"
             aria-describedby="searchParam"
-            id="search"
-            name="search"
+            id="dateSearch"
+            name="dateSearch"
             value={params}
             onChange={(e) => setParams(e.target.value)}
             // onInput={props.filter}
@@ -40,4 +41,4 @@ const SearchUi = (props: any) => {
   );
 };
 
-export default SearchUi;
+export default DateSearchUi;

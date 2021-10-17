@@ -20,6 +20,26 @@ const Reducer = (state: any, action: any) => {
         ...state,
         loading: action.payload,
       };
+    case "SEARCH_BOOKS":
+      return {
+        ...state,
+        bookFound: action.payload,
+      };
+    case "SEARCH_CHARACTERS":
+      return {
+        ...state,
+        characterFound: action.payload,
+      };
+    case "EMPTY":
+      return {
+        ...state,
+        message: action.payload,
+      };
+    case "SEARCH_PARAMS":
+      return {
+        ...state,
+        searchParams: action.payload,
+      };
     default:
       return state;
   }
