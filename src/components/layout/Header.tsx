@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import SearchUi from "../Search";
-import request from "../../services/axios";
-import { toast } from "../../services/alerts";
-import { Context } from "../../context/GlobalStore";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import SearchUi from '../Search';
+import request from '../../services/axios';
+import { toast } from '../../services/alerts';
+import { Context } from '../../context/GlobalStore';
 
 const HeaderUi = () => {
   // @ts-ignore
