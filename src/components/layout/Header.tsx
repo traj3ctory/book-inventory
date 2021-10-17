@@ -8,7 +8,7 @@ const HeaderUi = () => {
       <Navbar bg="light" expand="sm" fixed="top" className="shadow-sm">
         <Container>
           <Navbar.Brand href="/">
-            <img src={img} alt="header-img" width="34%" />
+            <img src={img} alt="header-img" width="40px" className="img-fluid" />
             &nbsp;Book-Inventory
           </Navbar.Brand>
         </Container>
