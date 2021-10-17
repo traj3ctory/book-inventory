@@ -37,9 +37,34 @@ const HomeUi = () => {
     };
   }, [dispatch]);
 
+  /**
+   * DESTRUCTURE STATE INTO VARIOUS OBJECT KEYS
+   */
+  const { loading, characterFound, bookFound, books, searchParams } = state;
+
   return (
     <>
-      {state.books && state.loading === false && <ListUi data={state.books} />}
+      {loading === false && bookFound.length >= 1 && (
+        <>
+          <h5>
+            Search Result for : <i>{searchParams}</i>
+          </h5>
+          <ListUi data={bookFound} />
+        </>
+      )}
+
+      {loading === false && characterFound.length >= 1 && (
+        <>
+          <h5>
+            Search Result for : <i>{searchParams}</i>
+          </h5>
+          <ListUi data={characterFound} />
+        </>
+      )}
+      {books &&
+        loading === false &&
+        bookFound.length < 1 &&
+        characterFound.length < 1 && <ListUi data={books} />}
     </>
   );
 };

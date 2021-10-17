@@ -1,17 +1,21 @@
-import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import { FaSearchengin } from 'react-icons/fa';
+import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import { FaSearchengin } from "react-icons/fa";
 
 const SearchUi = (props: any) => {
-  const [params, setParams] = useState('');
+  const [params, setParams] = useState("");
 
-  const handleClick = () => props.filter(params);
+  const handleClick = (event: any) => {
+    event.preventDefault();
+    props.filter(params);
+    setParams("");
+  };
 
   return (
     <>
-      <Form>
+      <Form onSubmit={handleClick}>
         <InputGroup>
           <FormControl
             placeholder="...Search"
@@ -19,7 +23,9 @@ const SearchUi = (props: any) => {
             aria-describedby="searchParam"
             id="search"
             name="search"
+            value={params}
             onChange={(e) => setParams(e.target.value)}
+            // onInput={props.filter}
           />
           <InputGroup.Text onClick={handleClick} id="searchParam">
             <FaSearchengin />

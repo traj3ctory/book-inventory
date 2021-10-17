@@ -6,6 +6,11 @@ interface initial {
   character: Array<any>;
   error: string;
   loading: boolean;
+  isSearching: boolean;
+  bookFound: Array<any>;
+  characterFound: Array<any>;
+  message: string;
+  searchParams: string;
 }
 
 const initialState: initial = {
@@ -13,6 +18,11 @@ const initialState: initial = {
   character: [],
   error: "",
   loading: false,
+  isSearching: false,
+  bookFound: [],
+  characterFound: [],
+  message: '',
+  searchParams: '',
 };
 
 
