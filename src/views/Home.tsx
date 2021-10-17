@@ -1,13 +1,16 @@
-import { useEffect, useContext } from "react";
-import axios from "axios";
-import { alert } from "../services/alerts";
-import ListUi from "../components/List";
-import { Context } from "../context/GlobalStore";
+import { useEffect, useContext } from 'react';
+import axios from 'axios';
+import { Context } from '../context/GlobalStore';
+import ListUi from '../components/List';
 
 const HomeUi = () => {
   // @ts-ignore
   const [state, dispatch] = useContext(Context);
 
+  /**
+   * On mount of this component || page fetch book and character data from the API
+   * When a change is the made on the global store re-render this page
+   */
   useEffect(() => {
     let unmounted = false;
     let source = axios.CancelToken.source();
@@ -48,6 +51,7 @@ const HomeUi = () => {
 
   return (
     <>
+      {/* Display the items in the book found section of the global store */}
       {loading === false && bookFound.length >= 1 && (
         <>
           <h5>
@@ -57,6 +61,7 @@ const HomeUi = () => {
         </>
       )}
 
+      {/* Display the items in the character found section of the global store */}
       {loading === false && characterFound.length >= 1 && (
         <>
           <h5>
@@ -65,6 +70,8 @@ const HomeUi = () => {
           <ListUi data={characterFound} />
         </>
       )}
+
+      {/* Display the items in the book and character section of the global store, data is gottent from the Api*/}
       {books &&
         loading === false &&
         bookFound.length < 1 &&

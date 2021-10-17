@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import Card from "react-bootstrap/Card";
-import { FaBookOpen, FaBook } from "react-icons/fa";
+import Card from 'react-bootstrap/Card';
+import { FaBookOpen, FaBook } from 'react-icons/fa';
 
 // Type declaration for props
 // interface cardUi {
@@ -17,7 +17,14 @@ import { FaBookOpen, FaBook } from "react-icons/fa";
 //   povCharacters: Array<string>,
 // };
 
-// Card component
+/**
+ * @title : UI to display book details
+ * @param {*} props.publisher: parse publisher title
+ * @param {*} props.name: parse name
+ * @param {*} props.isbn: parse isbn
+ * @param {*} props.authors: parse authors
+ * @param {*} props.released: parse released date
+ */
 const CardUi = (props: any) => {
   const { publisher, name, isbn, authors, released } = props.cardData;
   return (
@@ -33,8 +40,8 @@ const CardUi = (props: any) => {
               :&nbsp;<i className="small">{publisher}</i>
             </h5>
             <h5>
-                <FaBook />
-                &nbsp;Book-Name:&nbsp;<i className="small">{name}</i>
+              <FaBook />
+              &nbsp;Book-Name:&nbsp;<i className="small">{name}</i>
             </h5>
           </div>
         </Card.Header>
@@ -53,12 +60,6 @@ const CardUi = (props: any) => {
 // Card propType
 
 Card.propTypes = {
-  // publisher: PropTypes.string,
-  // name: PropTypes.string,
-  // isbn: PropTypes.string,
-  // authors: PropTypes.string,
-  // endDate: PropTypes.string,
-
   url: PropTypes.string,
   name: PropTypes.string,
   isbn: PropTypes.string,

@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import Card from "react-bootstrap/Card";
-import SearchUi from "../Search";
-import DateSearchUi from "../DateSearch";
-import { toast } from "../../services/alerts";
-import { Context } from "../../context/GlobalStore";
+import { useContext } from 'react';
+import Card from 'react-bootstrap/Card';
+import SearchUi from '../Search';
+import DateSearchUi from '../DateSearch';
+import { Context } from '../../context/GlobalStore';
 
 const SideBarUi = () => {
   // @ts-ignore

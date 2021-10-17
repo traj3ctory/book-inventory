@@ -1,6 +1,6 @@
 import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import CardUi from "./Card";
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import CardUi from './Card';
 
 interface dataObject {
   url: string;
