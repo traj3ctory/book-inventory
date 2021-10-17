@@ -25,7 +25,11 @@ const HomeUi = () => {
           dispatch({ type: "SET_BOOKS", payload: resp.data });
         }
       } catch (error: any) {
-        alert("Error", error?.message || "Something went wrong!", "error");
+        // alert("Error", error?.message || "Something went wrong!", "error");
+        dispatch({
+          type: "EMPTY",
+          payload: "Something went wrong!, Please reload the page",
+        });
       } finally {
         dispatch({ type: "SET_LOADING", payload: false });
       }
