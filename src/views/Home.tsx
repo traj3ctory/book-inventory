@@ -1,7 +1,7 @@
-import { useEffect, useContext } from 'react';
-import axios from 'axios';
-import { Context } from '../context/GlobalStore';
-import ListUi from '../components/List';
+import { useEffect, useContext } from "react";
+import axios from "axios";
+import { Context } from "../context/GlobalStore";
+import ListUi from "../components/List";
 
 const HomeUi = () => {
   // @ts-ignore
@@ -55,7 +55,7 @@ const HomeUi = () => {
       {loading === false && bookFound.length >= 1 && (
         <>
           <h5>
-            Search Result for : <i>{searchParams}</i>
+            Search Result for : <i>{searchParams.toUpperCase()}</i>
           </h5>
           <ListUi data={bookFound} />
         </>
@@ -65,7 +65,7 @@ const HomeUi = () => {
       {loading === false && characterFound.length >= 1 && (
         <>
           <h5>
-            Search Result for : <i>{searchParams}</i>
+            Search Result for : <i>{searchParams.toUpperCase()}</i>
           </h5>
           <ListUi data={characterFound} />
         </>
@@ -75,7 +75,11 @@ const HomeUi = () => {
       {books &&
         loading === false &&
         bookFound.length < 1 &&
-        characterFound.length < 1 && <ListUi data={books} />}
+        characterFound.length < 1 && (
+          <>
+            <h5>Available Books</h5> <ListUi data={books} />
+          </>
+        )}
     </>
   );
 };

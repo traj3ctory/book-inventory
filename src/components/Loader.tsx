@@ -1,7 +1,8 @@
 const LoaderUi = () => {
   return (
     <>
-     <section id="loader">
+    <div className="loader_bkg">
+    <section id="loader">
         <div className="circle-loader">
           <div className="circle circle_four"></div>
           <div className="circle circle_three"></div>
@@ -9,6 +10,7 @@ const LoaderUi = () => {
           <div className="circle circle_one"></div>
         </div>
       </section>
+    </div>
     </>
   );
 };
