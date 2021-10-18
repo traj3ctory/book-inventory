@@ -18,6 +18,7 @@ function App() {
           </Switch>
         </Router>
       </LayoutUi>
+      <a href="">learn react</a>
     </Store>
   )
 }
