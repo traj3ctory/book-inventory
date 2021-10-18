@@ -1,7 +1,7 @@
 const LoaderUi = () => {
   return (
     <>
-      <section id="loader">
+     <section id="loader">
         <div className="circle-loader">
           <div className="circle circle_four"></div>
           <div className="circle circle_three"></div>

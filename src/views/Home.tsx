@@ -34,7 +34,7 @@ const HomeUi = () => {
           payload: "Something went wrong!, Please reload the page",
         });
       } finally {
-        dispatch({ type: "SET_LOADING", payload: false });
+        // dispatch({ type: "SET_LOADING", payload: false });
       }
     })();
 
