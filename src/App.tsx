@@ -18,7 +18,7 @@ function App() {
           </Switch>
         </Router>
       </LayoutUi>
-      <a href="">learn react</a>
+      <div className="d-none">Book-Inventory application making use of ice and fire api</div>
     </Store>
   )
 }
